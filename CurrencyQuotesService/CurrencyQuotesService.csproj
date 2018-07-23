@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Authors>Glitched Polygons</Authors>
+    <Company>Glitched Polygons</Company>
+    <Product>GlitchedPolygons.Services.CurrencyQuotes</Product>
+    <PackageId>GlitchedPolygons.Services.CurrencyQuotes</PackageId>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <PackageIconUrl>http://pixsector.com/cache/1549118e/av70a149d5d0f534e7ab0.png</PackageIconUrl>
+    <PackageTags>currency currencies money exchange quotes usd to any dollar swiss franc currencylayer api</PackageTags>
+    <Description>A service for quickly retrieving any USD-to-currency exchange quote. Current implementation uses CurrencyLayer.com API.</Description>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="GlitchedPolygons.Services.Bash" Version="1.0.1" />
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+  </ItemGroup>
+
+</Project>
