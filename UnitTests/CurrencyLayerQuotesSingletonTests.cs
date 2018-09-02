@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace UnitTests
+﻿namespace GlitchedPolygons.Services.CurrencyQuotes.UnitTests
 {
     public class CurrencyLayerQuotesSingletonTests
     {

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
-using System.Runtime.InteropServices;
 using System.Threading.Tasks;
-
-using GlitchedPolygons.Services.Bash;
+using System.Runtime.InteropServices;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
+using GlitchedPolygons.Services.Bash;
 
 namespace GlitchedPolygons.Services.CurrencyQuotes
 {
@@ -27,8 +27,8 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
 
         private readonly IBash bash;
         private readonly string url;
-        private readonly int refreshRate;
         private readonly bool isLinux;
+        private readonly int refreshRate;
 
         private JObject json;
 
@@ -128,7 +128,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// <summary>
         /// Gets the specified currency conversion quote (with 1 USD as base).
         /// </summary>
-        /// <param name="currency">The ISO name of the currency.</param>
+        /// <param name="currency">The ISO name of the currency (e.g. CHF, USD, CZK, etc...).</param>
         /// <returns>The USD-to-currency quote if it could be found; <c>-1.0f</c> if no matching quote has been found.</returns>
         public async Task<float> GetConversionQuote(string currency)
         {

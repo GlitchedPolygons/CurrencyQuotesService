@@ -91,7 +91,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// <summary>
         /// Gets the specified currency conversion quote (with 1 USD as base).
         /// </summary>
-        /// <param name="currency">The ISO name of the currency.</param>
+        /// <param name="currency">The ISO name of the currency (e.g. CHF, USD, CZK, etc...).</param>
         /// <returns>The USD-to-currency quote if it could be found; <c>-1.0f</c> if no matching quote has been found.</returns>
         public async Task<float> GetConversionQuote(string currency)
         {
