@@ -1,6 +1,7 @@
 ﻿using System;
 using System.IO;
 using System.Net.Http;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 
 using GlitchedPolygons.Services.Bash;
@@ -28,7 +29,6 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         private readonly string url;
         private readonly int refreshRate;
         private readonly bool isLinux;
-        private readonly bool isDevEnvironment;
 
         private JObject json;
 
@@ -37,12 +37,10 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// Please ensure that the parameters passed into this constructor are valid!
         /// </summary>
         /// <param name="bash">Bash command service. (Use the injected service by calling provider.GetService)</param>
-        /// <param name="isDevEnvironment">Are we currently in a dev env? (localhost?).</param>
-        /// <param name="isLinux">Will this code run on Linux OS?</param>
         /// <param name="currencyLayerApiKey">The currencylayer.com API key (REMINDER: please don't check any API keys into source control!).</param>
         /// <param name="refreshRate">Refresh the currency exchange quotes every {amount} minutes.</param>
         /// <param name="currencies">All ISO names of the currencies to query (e.g. CHF, EUR, CAD, ...).</param>
-        public CurrencyLayerQuotes(IBash bash, bool isDevEnvironment, bool isLinux, string currencyLayerApiKey, int refreshRate, params string[] currencies)
+        public CurrencyLayerQuotes(IBash bash, string currencyLayerApiKey, int refreshRate, params string[] currencies)
         {
             if (currencies is null || currencies.Length == 0)
             {
@@ -50,9 +48,14 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
             }
 
             this.bash = bash;
-            this.isLinux = isLinux;
-            this.isDevEnvironment = isDevEnvironment;
             this.refreshRate = Math.Abs(refreshRate);
+            isLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
+            //isLinux = Environment.OSVersion.Platform == PlatformID.Unix;
+
+            if (isLinux && bash is null)
+            {
+                throw new ArgumentNullException($"{nameof(CurrencyLayerQuotes)}::ctor: The passed {nameof(bash)} parameter ({nameof(IBash)} instance) is null and would be needed since we're running on Linux here...");
+            }
 
             string _currencies = currencies[0];
 
@@ -80,7 +83,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// <returns>Whether the refresh action was successful or not.</returns>
         public async Task<bool> Refresh()
         {
-            if (!isDevEnvironment && isLinux)
+            if (isLinux)
             {
                 bash.Exec($"touch {FILE_PATH}");
                 bash.Exec($"chmod 666 {FILE_PATH}");
