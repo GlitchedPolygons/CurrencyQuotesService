@@ -53,6 +53,12 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
             url = $"http://apilayer.net/api/live?access_key={currencyLayerApiKey}&currencies={_currencies.ToUpper()}&source=USD&format=1";
         }
 
+        /// <summary>
+        /// Refreshes the current server's currency conversion quotes
+        /// (retrieving fresh data from the exchange web api).<para> </para>
+        /// Should return <c>true</c> if the refresh action was successful, and <c>false</c> if something went wrong.
+        /// </summary>
+        /// <returns>Whether the refresh action was successful or not.</returns>
         public async Task<bool> Refresh()
         {
             if (!DateTime.TryParse(json["timestamp"].ToString(), out var timestamp))
@@ -61,7 +67,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
             }
 
             // Only request fresh json from the currency web API
-            // if the minimum amount of time between refreshs has elapsed.
+            // if the minimum amount of time between refreshes has elapsed.
             if ((DateTime.Now - timestamp).TotalMinutes <= refreshRate)
             {
                 return true;
@@ -82,6 +88,11 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
             return true;
         }
 
+        /// <summary>
+        /// Gets the specified currency conversion quote (with 1 USD as base).
+        /// </summary>
+        /// <param name="currency">The ISO name of the currency.</param>
+        /// <returns>The USD-to-currency quote if it could be found; <c>-1.0f</c> if no matching quote has been found.</returns>
         public async Task<float> GetConversionQuote(string currency)
         {
             if (string.IsNullOrEmpty(currency) || !await Refresh())
@@ -116,6 +127,14 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
             return quote;
         }
 
+        /// <summary>
+        /// Converts the specified amount of USD (default is 1) into the target currency.<para> </para>
+        /// Base currency is always USD due to the fact that the free plan of 
+        /// CurrencyLayer API does not allow customizing the source currency for the requests.
+        /// </summary>
+        /// <param name="currency">The ISO name of the currency.</param>
+        /// <param name="amount">How many USD to convert.</param>
+        /// <returns>The converted amount; <c>-1.0f</c> if the conversion failed in some way.</returns>
         public async Task<float> ConvertFromUSD(string currency, float amount = 1.0f)
         {
             if (string.IsNullOrEmpty(currency))
@@ -138,5 +157,3 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         }
     }
 }
-
-// Copyright (C) - Raphael Beck, 2018
