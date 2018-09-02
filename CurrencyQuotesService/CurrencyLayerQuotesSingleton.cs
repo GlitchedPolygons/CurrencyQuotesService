@@ -33,6 +33,11 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
                 throw new ArgumentException($"{nameof(CurrencyLayerQuotes)}::ctor: The passed {nameof(currencies)} params array is either null or empty!");
             }
 
+            if (string.IsNullOrEmpty(currencyLayerApiKey))
+            {
+                throw new ArgumentException($"{nameof(CurrencyLayerQuotesSingleton)}::ctor: The passed {nameof(currencyLayerApiKey)} parameter is either null or empty.");
+            }
+
             this.refreshRate = Math.Abs(refreshRate);
             json = JObject.Parse(CurrencyLayerQuotes.DEFAULT_JSON);
 

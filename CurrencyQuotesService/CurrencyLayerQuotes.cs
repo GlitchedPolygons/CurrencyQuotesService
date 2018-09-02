@@ -47,6 +47,11 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
                 throw new ArgumentException($"{nameof(CurrencyLayerQuotes)}::ctor: The passed {nameof(currencies)} params array is either null or empty!");
             }
 
+            if (string.IsNullOrEmpty(currencyLayerApiKey))
+            {
+                throw new ArgumentException($"{nameof(CurrencyLayerQuotes)}::ctor: The passed {nameof(currencyLayerApiKey)} parameter is either null or empty.");
+            }
+
             this.bash = bash;
             this.refreshRate = Math.Abs(refreshRate);
             isLinux = RuntimeInformation.IsOSPlatform(OSPlatform.Linux);
@@ -132,7 +137,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// <returns>The USD-to-currency quote if it could be found; <c>-1.0f</c> if no matching quote has been found.</returns>
         public async Task<float> GetConversionQuote(string currency)
         {
-            if (string.IsNullOrEmpty(currency) || !await Refresh())
+            if (string.IsNullOrEmpty(currency) || currency.Length != 3 || !await Refresh())
             {
                 return -1.0f;
             }
@@ -174,7 +179,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// <returns>The converted amount; <c>-1.0f</c> if the conversion failed in some way.</returns>
         public async Task<float> ConvertFromUSD(string currency, float amount = 1.0f)
         {
-            if (string.IsNullOrEmpty(currency))
+            if (string.IsNullOrEmpty(currency) || currency.Length != 3)
             {
                 return -1.0f;
             }
