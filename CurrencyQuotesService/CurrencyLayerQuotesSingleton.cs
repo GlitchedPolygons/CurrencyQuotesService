@@ -100,7 +100,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// <returns>The USD-to-currency quote if it could be found; <c>-1.0f</c> if no matching quote has been found.</returns>
         public async Task<float> GetConversionQuote(string currency)
         {
-            if (string.IsNullOrEmpty(currency) || !await Refresh())
+            if (string.IsNullOrEmpty(currency) || currency.Length != 3 || !await Refresh())
             {
                 return -1.0f;
             }
@@ -142,7 +142,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
         /// <returns>The converted amount; <c>-1.0f</c> if the conversion failed in some way.</returns>
         public async Task<float> ConvertFromUSD(string currency, float amount = 1.0f)
         {
-            if (string.IsNullOrEmpty(currency))
+            if (string.IsNullOrEmpty(currency) || currency.Length != 3)
             {
                 return -1.0f;
             }
