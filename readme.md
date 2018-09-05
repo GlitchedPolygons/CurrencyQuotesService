@@ -1,3 +1,5 @@
+[![NuGet](https://img.shields.io/nuget/v/GlitchedPolygons.Services.CurrencyQuotes.svg)](https://www.nuget.org/packages/GlitchedPolygons.Services.CurrencyQuotes) 
+
 [CircleCI](http://circleci.com/):
 
 [![CircleCI](https://circleci.com/gh/GlitchedPolygons/CurrencyQuotesService.svg?style=svg)](https://circleci.com/gh/GlitchedPolygons/CurrencyQuotesService)
