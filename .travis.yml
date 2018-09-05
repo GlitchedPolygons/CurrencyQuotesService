@@ -1,0 +1,16 @@
+
+language: csharp
+sudo: false # faster builds
+solution: ./CurrencyQuotesService.sln
+dist: trusty
+notifications:
+  email: false
+install:
+  - dotnet restore ./CurrencyQuotesService.sln
+mono: none
+dotnet: 2.1.300
+script:
+  - dotnet restore ./CurrencyQuotesService.sln
+  - cd UnitTests/
+  - dotnet test
+  
