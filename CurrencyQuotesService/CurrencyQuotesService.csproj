@@ -6,20 +6,22 @@
     <Authors>Glitched Polygons</Authors>
     <PackageId>GlitchedPolygons.Services.CurrencyQuotes</PackageId>
     <Product>GlitchedPolygons.Services.CurrencyQuotes</Product>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</RepositoryUrl>
     <PackageTags>currency currencies money exchange quotes rates usd to any dollar swiss franc coin cash currencylayer api</PackageTags>
     <PackageIconUrl>http://pixsector.com/cache/1549118e/av70a149d5d0f534e7ab0.png</PackageIconUrl>
+    <AssemblyName>GlitchedPolygons.Services.CurrencyQuotes</AssemblyName>
+    <RootNamespace>GlitchedPolygons.Services.CurrencyQuotes</RootNamespace>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>bin\Debug\netstandard2.0\CurrencyQuotesService.xml</DocumentationFile>
+    <DocumentationFile>bin\Debug\netstandard2.0\GlitchedPolygons.Services.CurrencyQuotes.xml</DocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DocumentationFile>bin\Release\netstandard2.0\CurrencyQuotesService.xml</DocumentationFile>
+    <DocumentationFile>bin\Release\netstandard2.0\GlitchedPolygons.Services.CurrencyQuotes.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>
