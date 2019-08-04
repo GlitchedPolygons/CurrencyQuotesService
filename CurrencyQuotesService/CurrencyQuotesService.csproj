@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -6,12 +6,15 @@
     <Authors>Glitched Polygons</Authors>
     <PackageId>GlitchedPolygons.Services.CurrencyQuotes</PackageId>
     <Product>GlitchedPolygons.Services.CurrencyQuotes</Product>
-    <Version>1.0.2</Version>
+    <Title>GlitchedPolygons.Services.CurrencyQuotes</Title>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageProjectUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</RepositoryUrl>
     <PackageTags>currency currencies money exchange quotes rates usd to any dollar swiss franc coin cash currencylayer api</PackageTags>
     <PackageIconUrl>https://media.githubusercontent.com/media/GlitchedPolygons/NugetIcons/8fc395a8b2ae595a2816a690669490cf9a4764b9/currencyquotes.png</PackageIconUrl>
+    <PackageVersion>1.0.3</PackageVersion>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <AssemblyName>GlitchedPolygons.Services.CurrencyQuotes</AssemblyName>
     <RootNamespace>GlitchedPolygons.Services.CurrencyQuotes</RootNamespace>
   </PropertyGroup>

@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using Xunit;
 
-namespace GlitchedPolygons.Services.CurrencyQuotes.UnitTests
+namespace GlitchedPolygons.Services.CurrencyQuotes.Tests
 {
-    public class CurrencyLayerQuotesSingletonTests
+    public class CurrencyLayerQuotesTests
     {
         [Theory]
         [InlineData("api_key", 20, null)]
@@ -14,7 +14,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes.UnitTests
         {
             Assert.ThrowsAny<ArgumentException>(() =>
             {
-                new CurrencyLayerQuotesSingleton(apiKey, refreshRate, currencies);
+                new CurrencyLayerQuotes(new Bash.Bash(), apiKey, refreshRate, currencies);
             });
         }
 
@@ -24,11 +24,10 @@ namespace GlitchedPolygons.Services.CurrencyQuotes.UnitTests
         [InlineData("INVALID_CURRENCY_ISO")]
         public void GetConversionQuote_InvalidCurrencyISO_ReturnsMinusOne(string currency)
         {
-            var quotes = new CurrencyLayerQuotesSingleton("api_key", 20, "chf", "usd", "czk");
+            var quotes = new CurrencyLayerQuotes(new Bash.Bash(), "api_key", 20, "chf", "usd", "czk");
             var quote = quotes.GetConversionQuote(currency).Result;
             Assert.True(quote < 0);
         }
-
 
         [Theory]
         [InlineData("")]
@@ -36,7 +35,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes.UnitTests
         [InlineData("INVALID_CURRENCY_ISO")]
         public void ConvertFromUSD_InvalidCurrencyISO_ReturnsMinusOne(string currency)
         {
-            var quotes = new CurrencyLayerQuotesSingleton("api_key", 20, "chf", "usd", "czk");
+            var quotes = new CurrencyLayerQuotes(new Bash.Bash(), "api_key", 20, "chf", "usd", "czk");
             var convertedAmount = quotes.ConvertFromUSD(currency);
             Assert.True(convertedAmount.Result < 0);
         }

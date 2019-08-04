@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28010.2016
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyQuotesService", "CurrencyQuotesService\CurrencyQuotesService.csproj", "{1E76A2F5-CCA9-4F1C-ABEF-EF637AA1B268}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{A984CC2A-75A4-4719-AECC-89F5D07C759D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurrencyQuotesService.Tests", "CurrencyQuotesService.Tests\CurrencyQuotesService.Tests.csproj", "{A984CC2A-75A4-4719-AECC-89F5D07C759D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

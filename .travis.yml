@@ -11,6 +11,6 @@ mono: none
 dotnet: 2.1.300
 script:
   - dotnet restore ./CurrencyQuotesService.sln
-  - cd UnitTests/
+  - cd CurrencyQuotesService.Tests/
   - dotnet test
   
