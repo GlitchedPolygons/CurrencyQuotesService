@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netstandard2.1</TargetFramework>
     <Description>A service for quickly retrieving any USD-to-currency exchange quote. Current implementation uses CurrencyLayer.com API.</Description>
     <Authors>Glitched Polygons</Authors>
     <PackageId>GlitchedPolygons.Services.CurrencyQuotes</PackageId>
@@ -11,11 +11,12 @@
     <PackageProjectUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</RepositoryUrl>
     <PackageTags>currency currencies money exchange quotes rates usd to any dollar swiss franc coin cash currencylayer api</PackageTags>
-    <PackageVersion>1.0.3</PackageVersion>
+    <PackageVersion>1.0.4</PackageVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <AssemblyName>GlitchedPolygons.Services.CurrencyQuotes</AssemblyName>
     <RootNamespace>GlitchedPolygons.Services.CurrencyQuotes</RootNamespace>
+    <LangVersion>8</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -28,7 +29,7 @@
 
   <ItemGroup>
     <PackageReference Include="GlitchedPolygons.Services.Bash" Version="1.0.5" />
-    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
   </ItemGroup>
 
 
@@ -37,7 +38,7 @@
 </PropertyGroup>
 
 <ItemGroup>
-  <None Include="icon.png" Pack="true" PackagePath="\"/>
+  <None Include="icon.png" Pack="true" PackagePath="\" />
 </ItemGroup>
 
 </Project>
