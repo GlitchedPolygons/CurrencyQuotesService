@@ -11,7 +11,7 @@
     <PackageProjectUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</PackageProjectUrl>
     <RepositoryUrl>https://github.com/GlitchedPolygons/CurrencyQuotesService</RepositoryUrl>
     <PackageTags>currency currencies money exchange quotes rates usd to any dollar swiss franc coin cash currencylayer api</PackageTags>
-    <PackageVersion>1.0.4</PackageVersion>
+    <PackageVersion>1.0.5</PackageVersion>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <AssemblyName>GlitchedPolygons.Services.CurrencyQuotes</AssemblyName>

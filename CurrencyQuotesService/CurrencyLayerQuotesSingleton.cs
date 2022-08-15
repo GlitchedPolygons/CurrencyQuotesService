@@ -105,6 +105,13 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
                 return -1.0f;
             }
 
+            currency = currency.ToUpperInvariant();
+            
+            if (currency == "USD")
+            {
+                return 1.0f;
+            }
+
             if (json is null)
             {
                 throw new InvalidDataException($"{nameof(CurrencyLayerQuotes)}::{nameof(GetConversionQuote)}: the currency quotes {nameof(json)} object is null! Please ensure there is at least the default json available for currency conversions.");
@@ -153,6 +160,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
             }
 
             float quote = await GetConversionQuote(currency);
+            
             if (quote < 0.0f)
             {
                 return -1.0f;

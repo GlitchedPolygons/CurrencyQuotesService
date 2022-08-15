@@ -96,10 +96,10 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
 
             if (!File.Exists(FILE_PATH))
             {
-                File.WriteAllText(FILE_PATH, DEFAULT_JSON);
+                await File.WriteAllTextAsync(FILE_PATH, DEFAULT_JSON);
             }
 
-            json = JObject.Parse(File.ReadAllText(FILE_PATH));
+            json = JObject.Parse(await File.ReadAllTextAsync(FILE_PATH));
 
             if (!DateTime.TryParse(json["timestamp"].ToString(), out var timestamp))
             {
@@ -124,7 +124,7 @@ namespace GlitchedPolygons.Services.CurrencyQuotes
                 json = JObject.Parse(await response.Content.ReadAsStringAsync());
                 json["timestamp"].Replace(DateTime.Now.ToString("O"));
 
-                File.WriteAllText(FILE_PATH, json.ToString(Formatting.Indented));
+                await File.WriteAllTextAsync(FILE_PATH, json.ToString(Formatting.Indented));
             }
 
             return true;
