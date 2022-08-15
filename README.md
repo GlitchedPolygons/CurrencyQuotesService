@@ -1,5 +1,4 @@
 [![NuGet](https://img.shields.io/nuget/v/GlitchedPolygons.Services.CurrencyQuotes.svg)](https://www.nuget.org/packages/GlitchedPolygons.Services.CurrencyQuotes) 
-[![CircleCI](https://circleci.com/gh/GlitchedPolygons/CurrencyQuotesService.svg?style=svg)](https://circleci.com/gh/GlitchedPolygons/CurrencyQuotesService)
 [![Build Status](https://travis-ci.org/GlitchedPolygons/CurrencyQuotesService.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/CurrencyQuotesService)
 
 # Currency Quotes API service
