@@ -1,3 +1,11 @@
+> [!IMPORTANT]
+>
+> # **NOTICE:**
+>
+> ## Development of this project has been migrated to: https://codeberg.org/GlitchedPolygons/CurrencyQuotesService
+>
+> ## All pull requests and issues on GitHub will be ignored from the 16th of August, 2025 onwards.
+
 [![NuGet](https://img.shields.io/nuget/v/GlitchedPolygons.Services.CurrencyQuotes.svg)](https://www.nuget.org/packages/GlitchedPolygons.Services.CurrencyQuotes) 
 [![Build Status](https://travis-ci.org/GlitchedPolygons/CurrencyQuotesService.svg?branch=master)](https://travis-ci.org/GlitchedPolygons/CurrencyQuotesService)
 
